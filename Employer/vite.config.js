@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['axios','js-cookie'],
+      external: ['axios','react-router-dom'],
     },
   },
 })
