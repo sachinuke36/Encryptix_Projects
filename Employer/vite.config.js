@@ -5,11 +5,11 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    include: ['axios', 'react-router-dom'],
+    include: ['axios', 'react-router-dom','js-cookie'],
   },
   build: {
     rollupOptions: {
-      external: ['axios', 'react-router-dom'],
+      external: ['axios', 'react-router-dom','js-cookie'],
     },
   },
 });
