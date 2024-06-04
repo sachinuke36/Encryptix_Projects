@@ -1,0 +1,46 @@
+.jobs {
+    color: white;
+    width: 80%;
+    margin: 15vh auto;
+    position: relative;
+    height: 100vh;
+}
+
+.jobs h1 {
+    color: rgb(108, 192, 182);
+    display: flex;
+    justify-content: center;
+}
+
+.jobs .jobs-content {
+    display: flex;
+    margin-top: 4vh;
+
+}
+
+.jobs .show-jobs {
+    width: 50%;
+    height: 83vh;
+    position: absolute;
+    left: 40%;
+    overflow-y: scroll;
+
+}
+.loading-box{
+    margin: 40vh auto;
+}
+.loading{
+    margin: 0 auto;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border-bottom: 7px solid rgb(45, 215, 218);
+    animation:loading 0.3s infinite linear ;
+}
+
+@keyframes loading {
+    
+    100%{
+        transform: rotate(360deg);
+    }
+}

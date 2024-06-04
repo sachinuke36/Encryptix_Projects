@@ -1,0 +1,49 @@
+.modal-wrapper{
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background:rgba(11, 11, 11, 0.9) ; 
+
+}
+
+.hsc_content{ 
+display: flex;
+flex-direction: column;
+align-items: center;
+border-radius: 4px;
+padding: 5px;
+gap: 1vh;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: white;
+width: max(400px,40vw);
+z-index: 5;
+color: black;}
+
+.hsc_content form{ 
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 10px;
+gap: 2vh;
+color: black;
+}
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    gap:7px;
+}
+input{
+    padding: 5px 20px;
+    width: 70%;
+}
+select{
+    padding: 5px 20px;
+}
+textarea {
+    width: 90%;
+}

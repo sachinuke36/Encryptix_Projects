@@ -1,0 +1,24 @@
+.degree-deploma-content{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 1;
+    padding: 10px 25px;
+    gap: 3vh;
+}
+
+.degree-deploma-content form{
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+.degree-deploma-content form .save-button{
+   display: flex;
+   justify-content: flex-end;
+}
+.degree-deploma-content form button{
+    padding: 5px 20px;
+    width: 100px;
+}

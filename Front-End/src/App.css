@@ -1,0 +1,26 @@
+/* html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+#root {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+} */
+
+body {
+    color: white;
+    background-color: rgb(14, 18, 1);
+    /* width: 80%; */
+}
+
+a {
+    text-decoration: none;
+}

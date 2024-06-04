@@ -1,0 +1,35 @@
+.application-card{
+    border: 1px solid white;
+    margin: 5px auto;
+    width: 30%;
+    padding:8px;
+}
+.button-box{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+.button-box button{
+    padding: 5px 10px;
+    background-color: rgb(105, 167, 167);
+    border: none;
+    border-radius: 4px;
+    outline: none;
+}
+@media (max-width:667px) {
+    .application-card{
+        width: 40%;
+    }
+}
+@media (max-width:520px) {
+    .application-card{
+        width: 50%;
+    }
+}
+@media (max-width:404px) {
+    .application-card{
+        width: 70%;
+    }
+}

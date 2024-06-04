@@ -1,0 +1,70 @@
+.jobcard {
+    width: 600px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.card-upper {
+    display: flex;
+    padding: 0 10px;
+    height: 30%;
+}
+
+.card-upper-left {
+    width: 200px;
+}
+
+.card-upper-left .title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card-upper-left .company {
+    font-size: 14px;
+    color: gray;
+}
+
+.card-upper-right img {
+    width: 45px;
+    padding-left: 50px;
+}
+
+hr {
+    border-color: rgb(60, 55, 55);
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.card-lower {
+    margin-top: 20px;
+    width: 70%;
+    gap: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.type {
+    border: 1px solid gray;
+    width: 80px;
+    text-align: center;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-bottom a {
+    text-decoration: none;
+    color: aqua;
+}

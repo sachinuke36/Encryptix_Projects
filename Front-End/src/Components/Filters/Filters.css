@@ -1,0 +1,71 @@
+.filters .filters-heading .filter-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aquamarine;
+}
+
+.filters .filters-heading {
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.filters {
+    margin-top: 3vh;
+    border: 1px solid white;
+    width: 25%;
+    position: absolute;
+    padding: 2vh 10px 6vh 10px;
+}
+
+.profile-options {
+    color: black;
+}
+
+.filters-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.filters-content input {
+    padding: 9px;
+    outline: none;
+    border: none;
+}
+
+.filters-content .checkbox {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.f-c {
+    display: flex;
+    flex-direction: column;
+}
+
+.f {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile-option:nth-child(2) {
+    border: none;
+    outline: none;
+}
+
+.filters .location .creatable {
+    color: black;
+}
+
+.b {
+    border: 1px solid white;
+}

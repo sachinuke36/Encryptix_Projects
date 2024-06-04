@@ -1,0 +1,29 @@
+.modal-wrapper{
+top: 0 ;
+bottom: 0;
+left: 0;
+right: 0;
+position: fixed;
+background:rgba(11, 11, 11, 0.9) ; 
+
+}
+.education-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+    padding: 10px;
+    gap: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: max(100px,34vw);
+    z-index: 5;
+    color: black;
+}
+.blue{
+    color:rgb(25, 141, 150);
+    cursor: pointer;
+}
