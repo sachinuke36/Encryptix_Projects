@@ -9,7 +9,7 @@ const StoreContext = (props)=>{
     const [user, setUser]=useState('EMPLOYEE');
     const [all_jobs, setAll_jobs] = useState();
     const [filteredJobs, setFilteredJobs]=useState();
-    const url = 'http://localhost:4000';
+    const url = 'https://encryptix-projects.onrender.com';
     const [token, setToken]= useState();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [jobseeker, setJobseeker]=useState({name:'', email:''})
