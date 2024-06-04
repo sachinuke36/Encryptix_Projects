@@ -1,12 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+// vite.config.js
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  optimizeDeps: {
+    include: ['axios', 'react-router-dom'],
+  },
   build: {
     rollupOptions: {
-      external: ['axios','react-router-dom','js-cookie'],
+      external: ['axios', 'react-router-dom'],
     },
   },
-})
+});
