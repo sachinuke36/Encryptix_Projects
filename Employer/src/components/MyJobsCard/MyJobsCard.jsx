@@ -7,8 +7,8 @@ import { SiKnowledgebase } from "react-icons/si";
 import { GiDuration } from "react-icons/gi";
 import axios from 'axios'; 
 import {useNavigate} from 'react-router-dom'
-
-import { Context } from '../../../../Front-End/src/Context/StoreContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyJobsCard = ({title,
     type,
@@ -30,14 +30,16 @@ const MyJobsCard = ({title,
         const navigate = useNavigate();
 
         const deleteJob = async (id)=>{
-                console.log(id)
             try {
                 let token = localStorage.getItem('token');
-                console.log(url+`/job/delete-job/${id}`)
                 const res = await axios.delete(url+`/job/delete-job/${id}`,{headers:{token}});
-                // console.log(res.data.message);
+                if(res.data.success){
+                    toast.success(res.data.message);
+                }else{
+                    toast.error(res.data.message)
+                }
             } catch (error) {
-                console.log('error aya deleteJob front-end')
+                toast.error(error);
             }
         }
 
@@ -92,6 +94,7 @@ const MyJobsCard = ({title,
             <button onClick={()=>deleteJob(id)}>Delete</button>
             <button onClick={()=>handleEdit(id)} >Edit</button>
         </div>
+        <ToastContainer/>
     </div>
   )
 }

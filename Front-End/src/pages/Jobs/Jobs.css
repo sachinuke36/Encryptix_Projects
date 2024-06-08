@@ -2,8 +2,6 @@
     color: white;
     width: 80%;
     margin: 15vh auto;
-    position: relative;
-    height: 100vh;
 }
 
 .jobs h1 {
@@ -15,16 +13,13 @@
 .jobs .jobs-content {
     display: flex;
     margin-top: 4vh;
-
 }
 
 .jobs .show-jobs {
-    width: 50%;
+    width: 60%;
     height: 83vh;
-    position: absolute;
-    left: 40%;
+    
     overflow-y: scroll;
-
 }
 .loading-box{
     margin: 40vh auto;
@@ -37,10 +32,57 @@
     border-bottom: 7px solid rgb(45, 215, 218);
     animation:loading 0.3s infinite linear ;
 }
+.filters-logo-none{
+    display: none;
+}
 
 @keyframes loading {
     
     100%{
         transform: rotate(360deg);
+    }
+}
+
+@media (max-width:410px) {
+    .jobs .jobs-content{
+        position: relative;
+    }
+    .display{
+        display: flex;
+    }
+    .filters-logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border:1px solid white;
+        border-radius: 4px;
+    }
+    .filters-logo .logo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* border:1px solid white; */
+    }
+    .left-filters__{
+        display: none;
+        position: absolute;
+        top:0;
+        width: 300px;
+        z-index: 10;
+        border:1px solid red
+    }
+    .left-filters_{
+        display: flex;
+        position: absolute;
+        top:0;
+        width: 300px;
+        z-index: 10;
+        /* border:1px solid red */
+    }
+    
+    .jobs .show-jobs{
+        width: 400px;
+        margin: 0 auto;
     }
 }

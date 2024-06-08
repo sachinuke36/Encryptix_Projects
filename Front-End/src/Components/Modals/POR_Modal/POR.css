@@ -1,12 +1,15 @@
 .por-details{
     background-color: white;
     color: black;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
+    width: max(300px,50vw);
     transform: translate(-50%, -50%);
     padding: 20px 20px;
+    z-index: 10;
 }
 .por-details textarea{
+    margin: 0 auto;
     padding: 20px 20px;
 }

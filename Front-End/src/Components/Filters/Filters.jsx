@@ -4,7 +4,7 @@ import { FaFilter } from "react-icons/fa";
 import CreaTableSelect from 'react-select/creatable';
 import { Context } from '../../Context/StoreContext';
 
-const Filter = () => {
+const Filter = ({showFilter, setShowFilter}) => {
     const {all_jobs,setFilterOptions,filterOptions} = useContext(Context);
     const [profile,setProfile] = useState();
 
@@ -75,6 +75,7 @@ const Filter = () => {
                 </div>
                 
               </form>
+              {showFilter? <button onClick={()=>setShowFilter(prev=>!prev)} >Done</button>:null}
             </div>
         </div>
     )

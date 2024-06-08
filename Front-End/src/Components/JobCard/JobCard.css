@@ -1,6 +1,5 @@
 .jobcard {
     width: 600px;
-    height: 300px;
     display: flex;
     flex-direction: column;
     border: 1px solid white;
@@ -37,10 +36,11 @@ hr {
     border-color: rgb(60, 55, 55);
 }
 
-.flex {
+.flex-s {
     display: flex;
     align-items: center;
     gap: 3px;
+    font-size: 14px;
 }
 
 .card-lower {

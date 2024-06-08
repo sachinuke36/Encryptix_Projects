@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './Applications.css'
-import { Context } from '../../../../Front-End/src/Context/StoreContext'
+import { Context } from '../../Context/StoreContext'
 import axios from 'axios';
 import ApplicationCard from '../../components/ApplicationCards/ApplicationCard';
 

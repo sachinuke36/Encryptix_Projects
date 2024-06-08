@@ -15,6 +15,11 @@
 .login-page span{
     color:aqua
 }
+.login-page hr{
+   width: 90%;
+   border-color: rgb(78, 81, 85);
+}
+
 .form{
     margin-top: 2vh;
     display: flex;
@@ -53,4 +58,25 @@
 }
 button:hover{
     border: 2px solid aquamarine;
+}
+
+@media (max-width:515px) {
+    .login-page{
+        width: 80%;
+    }
+    .login-page input{
+        width: 300px;
+        padding: 9px 10px;
+       
+    }
+}
+@media (max-width:435px) {
+    .login-page{
+        width: 80%;
+    }
+    .login-page input{
+        width: 200px;
+        padding: 9px 10px;
+       
+    }
 }

@@ -99,6 +99,18 @@
 .none{
     display: none;
 }
+.logout-box{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.sidebar-links{
+    height: 80vh;
+    display: flex;
+    flex-direction:column ;
+    justify-content:space-between;
+}
+
 
 
 @keyframes sidebar {

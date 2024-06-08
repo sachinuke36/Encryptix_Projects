@@ -25,7 +25,7 @@ const Accomplishments = ({setShowAccomplishments}) => {
             <form onSubmit={handleSubmit}>
                 <div className="accomplishments_box flex-col">
                     <label htmlFor="accomplishments">Accomplishments</label>
-                    <textarea value={resume.accom} onChange={handleChange} cols={50} rows={20} name="accomplishments" id="accomplishments"></textarea>
+                    <textarea value={resume.accom} required onChange={handleChange} cols={50} rows={20} name="accomplishments" id="accomplishments"></textarea>
                     <button type='submit'>save</button>
                 </div>
             </form>

@@ -1,6 +1,6 @@
 import React,{useState, useContext} from 'react'
 import './Login.css'
-import { Context } from '../../../../Front-End/src/Context/StoreContext';
+import { Context } from '../../Context/StoreContext'
 import axios from 'axios' 
 import { useNavigate } from "react-router-dom";
 

@@ -1,13 +1,15 @@
 import React, { useEffect, useContext } from 'react'
 import './GraduationModal.css'
 import { Context } from '../../../Context/StoreContext';
-const GraduationModal = ({resume, setResume ,graduation,setGraduation}) => {
+const GraduationModal = ({resume, setResume ,graduation,setShowGradModal,setGraduation}) => {
     const { url, updateResume } = useContext(Context);
 
     const handleSubmit = (e)=>{
         e.preventDefault();
         setResume(prev=>({...prev, education:[...(prev?.education)||[], {graduation}]}))
-        updateResume();
+        const updatedResume ={...resume, education:[...resume.education, {graduation}]}
+        updateResume(updatedResume);
+        setShowGradModal(false)
     }
     const handleChange = (e)=>{
         const field = e.target.name;
@@ -53,7 +55,8 @@ const GraduationModal = ({resume, setResume ,graduation,setGraduation}) => {
             <div className="personal_performance flex">
                 <div className="performance flex-col">
                 <label htmlFor="performance">Performance Scale</label>
-                <select name="performance_scale" onChange={handleChange} value={graduation.value} >
+                <select name="performance_scale" onChange={handleChange}  value={graduation.value} >
+                    <option value="select">select</option>
                     <option value="percentage">Percentage</option>
                     <option value="cgpa">CGPA(Scale of 10)</option>
                 </select>

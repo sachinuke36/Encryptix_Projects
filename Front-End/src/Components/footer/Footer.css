@@ -1,14 +1,14 @@
 .footer{
    
     background-color: #808080;
-    
+    width: 100%;
 }
 .footer .top{
     margin-top: 5vh;
-    padding: 30px 10px;
+    padding: 25px 10px;
     background-color: #808080;
     position: relative;  
-    width: 100%;
+    max-width: 100%;
     display: flex;
     height: 25vh;
     justify-content: space-around;
@@ -28,7 +28,8 @@ border-color: antiquewhite;
 .footer .bottom{
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 10px;
     font-size: 25px;
-    padding: 10px;
+    padding: 10px 0;
+    width: 100%;
 }

@@ -5,7 +5,7 @@ import NavbarE from './components/navbar/Navbar'
 // import Navbar from './Components/Navbar/Navbar'
 import EmployerHome from './pages/home/EmployerHome'
 import { useContext } from 'react'
-import { Context } from '../../Front-End/src/Context/StoreContext'
+import { Context } from './Context/StoreContext'
 import PostJob from './pages/PostJob/PostJob'
 import MyJobs from './pages/MyJobs/MyJobs'
 import LoginE from './pages/login/Login'
@@ -15,24 +15,22 @@ import Applications from './pages/applications/Applications'
 // import Internships from './pages/Internships/Internships'
 // import JobDetails from './pages/JobDetails/JobDetails'
 function App() {
-  const { user, isLoggedIn } = useContext(Context);
+  const {  isLoggedIn } = useContext(Context);
   return (
     <div className='app'>
       <>
 
          
             {/* ------------Empolyer------------------ */}
-            {isLoggedIn ? <> <NavbarE />
+            {isLoggedIn ? (<> <NavbarE />
               <Routes>
                 {/* <Route path='/' element={<EmployerHome />} /> */}
                 <Route path='/post-job' element={<PostJob />} />
                 <Route path='/post-job/update/:id' element={<PostJob />} />
                 <Route path='/' element={<MyJobs />} />
                 <Route path='/applications' element={<Applications/>}/>
-              </Routes></> :
-              <Routes>
-                <Route  path='/login' element={<LoginE />} />
-              </Routes>}
+              </Routes></> ): <LoginE/>
+             }
       </>
 
 

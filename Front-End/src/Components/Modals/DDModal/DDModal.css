@@ -1,18 +1,22 @@
 .degree-deploma-content{
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: absolute;
+    align-items: center;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    z-index: 1;
-    padding: 10px 25px;
-    gap: 3vh;
+    z-index: 10;
+    padding: 10px 15px;
+    width: max(300px, 50vw);
+    gap: 2vh;
 }
 
 .degree-deploma-content form{
     display: flex;
     flex-direction: column;
-    gap: 3vh;
+    gap: 1vh;
 }
 .degree-deploma-content form .save-button{
    display: flex;

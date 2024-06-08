@@ -3,10 +3,12 @@ import './Internships.css';
 import { Context } from '../../Context/StoreContext';
 import JobCard_Jobs from '../../Components/JobCard_Job/JobCard_Job';
 import Filter from '../../Components/Filters/Filters';
+import { LiaFilterSolid } from "react-icons/lia";
 
 const Jobs = () => {
     const {all_jobs,filteredJobs} = useContext(Context);
     const [loading, setLoading]= useState(true);
+    const [showFilter, setShowFilter] = useState(false)
     
     useEffect(() => {
       if (filteredJobs) {
@@ -25,9 +27,10 @@ const Jobs = () => {
   return (
     <div className='jobs'>
       <h1> Internships for you</h1>
+      <h2 onClick={()=>setShowFilter(prev=>!prev)} className=  { 'filters-logo display'}>filters <LiaFilterSolid className='logo'/></h2>
       <div className="jobs-content">
-      <div className="left-filters">
-        <Filter all_jobs={all_jobs}/>
+      <div className={showFilter? "left-filters left-filters_":'left-filters__' }>
+        <Filter showFilter={showFilter} setShowFilter={setShowFilter} all_jobs={all_jobs}/>
       </div>
 
       <div className="show-jobs">

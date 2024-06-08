@@ -14,7 +14,6 @@ const Project = ({setShowProj}) => {
         const field = e.target.name;
         const value = e.target.value;
         setProject(prev=>({...prev, [field]:value}));
-        console.log(project)
     }
 
     const handleSubmit = e =>{
@@ -33,16 +32,16 @@ const Project = ({setShowProj}) => {
         <form className='flex-col' onSubmit={handleSubmit}>
             <div className="title flex-col">
                 <label htmlFor="title">Title</label>
-                <input value={project.title} onChange={handleChange} type="text" name="title" id="title" />
+                <input value={project.title} required onChange={handleChange} type="text" name="title" id="title" />
             </div>
             <div className="duration flex">
                 <div className="start_date_box flex-col">
                     <label htmlFor="start_date">Start Date</label>
-                    <input type="date" value={project.start_date} onChange={handleChange} name="start_date" id="start_date" />
+                    <input type="date" required value={project.start_date} onChange={handleChange} name="start_date" id="start_date" />
                 </div>
                 <div className="end_date_box flex-col">
                     <label htmlFor="end_date">End date</label>
-                    <input type="date" value={project.end_date} onChange={handleChange} name="end_date" id="end_date" />
+                    <input type="date" required value={project.end_date} onChange={handleChange} name="end_date" id="end_date" />
                 </div>
             </div>
             <div className="description flex-col">

@@ -5,6 +5,7 @@ import { FaAngleDoubleLeft } from "react-icons/fa";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { useContext } from 'react';
 import { Context } from '../../Context/StoreContext';
+import {motion} from 'framer-motion'
 
 const Header = () => {
     const ref = useRef(null);
@@ -12,16 +13,16 @@ const Header = () => {
 
     const posts =[
         {
-            image:'src/assets/home_1.webp'
+            image:'/images/home_1.webp'
         },
         {
-            image:'src/assets/home_2.webp'
+            image:'/images/home_2.webp'
         },
         {
-            image:'src/assets/home_3.webp'
+            image:'/images/home_3.webp'
         },
         {
-            image:'src/assets/home_4.webp'
+            image:'/images/home_4.webp'
         },
        
     ]
@@ -41,8 +42,16 @@ const Header = () => {
                
             </div>
             <div className="scroll-buttons">
-             <button onClick={()=>scroll(-200)}><FaAngleDoubleLeft /></button>
-             <button onClick={()=>scroll(200)}><FaAngleDoubleRight /></button>
+             <motion.button
+             whileTap={{scale:0.95,
+                rotate:'2.5deg'
+             }}
+              onClick={()=>scroll(-200)}><FaAngleDoubleLeft /></motion.button>
+             <motion.button
+             whileTap={{scale:0.95,
+                rotate:'2.5deg'
+             }}
+              onClick={()=>scroll(200)}><FaAngleDoubleRight /></motion.button>
             </div>
         </div>
     </div>

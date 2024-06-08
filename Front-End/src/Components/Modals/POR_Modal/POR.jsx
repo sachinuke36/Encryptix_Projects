@@ -27,7 +27,7 @@ const POR = ({setShowPOR}) => {
             <h3>Description</h3>
             <p>If you have been/are an active part of societies, conducted any events or led a team, add details here</p>
             <form onSubmit={handleSubmit}>
-                <textarea onChange={handlePOR} rows={20} cols={100} value={POR.description} name="description" id="description"></textarea>
+                <textarea onChange={handlePOR} required rows={20} cols={10} value={POR.description} name="description" id="description"></textarea>
                 <button type='submit'>save</button>
             </form>
         </div>

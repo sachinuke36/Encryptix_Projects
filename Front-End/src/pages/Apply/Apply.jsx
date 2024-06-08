@@ -10,6 +10,9 @@ import POR from '../../Components/Modals/POR_Modal/POR';
 import Project from '../../Components/Modals/Project_Modal/Project';
 import Skills from '../../Components/Modals/Skills_Modal/Skills';
 import Accomplishments from '../../Components/Modals/Accomplishments/Accomplishments';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FaDeleteLeft } from "react-icons/fa6";
 
 const Apply = () => {
     const { id } = useParams();
@@ -26,10 +29,14 @@ const Apply = () => {
     const applyForJob = async(id) =>{
         try {
             const response = await axios.patch(url+"/job/apply", {id},{headers:{token}})
-            console.log("response from apply",response.data);
+            if(response.data.success){
+                toast.success(response.data.message);
+            }else{
+            toast.warn(response.data.message);
+        }
 
         } catch (error) {
-            console.log("error occured")
+            toast.error("error occured")
         }
     }
 
@@ -41,10 +48,8 @@ const Apply = () => {
             const updatedResume = { ...resume, education: updatedEducation };
             setResume(updatedResume);
             updateResume(updatedResume);
-            console.log("From deleted:",updatedResume);
-            console.log("Resume updated after deletion");
         } catch (error) {
-            console.error("Error updating resume after deletion:", error);
+            toast.error("error occured")
         }
     };
 
@@ -55,7 +60,7 @@ const Apply = () => {
             setResume(updatedResume);
             updateResume(updatedResume);
         } catch (error) {
-            console.error("Error updating resume after deletion:", error);
+            toast.error("error occured")
         }
     };
     const deleteIntern = async (index) => {
@@ -65,7 +70,7 @@ const Apply = () => {
             setResume(updatedResume);
             updateResume(updatedResume);
         } catch (error) {
-            console.error("Error updating resume after deletion:", error);
+            toast.error("error occured")
         }
     };
     const deletePOR = async (index) => {
@@ -75,7 +80,7 @@ const Apply = () => {
             setResume(updatedResume);
             updateResume(updatedResume);
         } catch (error) {
-            console.error("Error updating resume after deletion:", error);
+            toast.error("error occured")
         }
     };
     const deleteProj = async (index) => {
@@ -85,7 +90,7 @@ const Apply = () => {
             setResume(updatedResume);
             updateResume(updatedResume);
         } catch (error) {
-            console.error("Error updating resume after deletion:", error);
+            toast.error("error occured")
         }
     };
     const deleteSkill = async (index) => {
@@ -95,7 +100,7 @@ const Apply = () => {
             setResume(updatedResume);
             updateResume(updatedResume);
         } catch (error) {
-            console.error("Error updating resume after deletion:", error);
+            toast.error("error occured")
         }
     };
     const deleteAcco = async (index) => {
@@ -105,7 +110,7 @@ const Apply = () => {
             setResume(updatedResume);
             updateResume(updatedResume);
         } catch (error) {
-            console.error("Error updating resume after deletion:", error);
+            toast.error("error occured")
         }
     };
 
@@ -114,6 +119,7 @@ const Apply = () => {
 
     return (
         <div className='apply'>
+            <ToastContainer />
             <h1>Your Resume</h1>
             <div>
                 <div className="contact-details">
@@ -128,56 +134,58 @@ const Apply = () => {
                     <div className='flex-c'>
                         <div className="education_content">
                             {resume?.education?.map((item, k) => (
-                                <div className='flex' key={k}>
+                                <div className='flex-s' key={k}>
                                     <div className="flex-c">
                                         <h4>{item.graduation?.degree}</h4>
                                         <p>{item.graduation?.college_name}</p>
                                         <p>{item.graduation?.start_year ?  `${item.graduation?.start_year} - ${item.graduation?.end_year}` :null}</p>
                                     </div>
-                                    {item.graduation?.college_name ? <p onClick={() => deleteEd(k)}>delete</p> : null}
+                                    {item.graduation?.college_name ? <p onClick={() => deleteEd(k)}><FaDeleteLeft className='delete-icon' />
+                                    </p> : null}
                                 </div>
                             ))}
                             {resume?.education?.map((item, k) => (
-                                <div className='flex' key={k}>
+                                <div className='flex-s' key={k}>
                                     <div className="flex-c">
                                         <h3>{item.HSC?.school}</h3>
                                         <p>{item.HSC?.stream}</p>
                                         <p>{item.HSC?.performance_scale}{item.HSC?.performance_scale? " : ":null}{item.HSC?.performance}</p>
                                         <p>{item.HSC?.year_of_completion}</p>
                                     </div>
-                                    {item.HSC?.school ? <p onClick={() => deleteEd(k)}>delete</p> : null}
+                                    {item.HSC?.school ? <p onClick={() => deleteEd(k)}><FaDeleteLeft className='delete-icon' />
+                                    </p> : null}
                                 </div>
                             ))}
                             {resume?.education?.map((item, k) => (
-                                <div className='flex' key={k}>
+                                <div className='flex-s' key={k}>
                                     <div className="flex-c">
                                         <h3>{item.SSC?.school}</h3>
                                         <p>{item.SSC?.stream}</p>
                                         <p>{item.SSC?.performance_scale}{item.SSC?.performance_scale?" : ":null}{item.SSC?.performance}</p>
                                         <p>{item.SSC?.year_of_completion}</p>
                                     </div>
-                                    {item.SSC?.school ? <p onClick={() => deleteEd(k)}>delete</p> : null}
+                                    {item.SSC?.school ? <p onClick={() => deleteEd(k)}><FaDeleteLeft className='delete-icon' /></p> : null}
                                 </div>
                             ))}
                                {resume?.education?.map((item, k) => (
-                                <div className='flex' key={k}>
+                                <div className='flex-s' key={k}>
                                     <div className="flex-c">
                                         <h3>{item.diploma?.college}</h3>
                                         <p>{item.diploma?.stream}</p>
                                         <p>{item.diploma?.performance}</p>
                                     </div>
-                                    {item.diploma?.college ? <p onClick={() => deleteEd(k)}>delete</p> : null} 
+                                    {item.diploma?.college ? <p onClick={() => deleteEd(k)}><FaDeleteLeft className='delete-icon' /></p> : null} 
                                     </div>
                               ))}
 
                                {resume?.education?.map((item, k) => (
-                                <div className='flex' key={k}>
+                                <div className='flex-s' key={k}>
                                     <div className="flex-c">
                                         <h3>{item.PhD?.college}</h3>
                                         <p>{item.PhD?.stream}</p>
                                         <p>{item.PhD?.performance}</p>
                                     </div>
-                                    {item.PhD?.college? <p onClick={() => deleteEd(k)}>delete</p> : null} 
+                                    {item.PhD?.college? <p onClick={() => deleteEd(k)}><FaDeleteLeft className='delete-icon' /></p> : null} 
                                     </div>
                               ))}
                         </div>
@@ -195,7 +203,7 @@ const Apply = () => {
                             <div className="flex-col">
                             <div className="experience_content flex-col">
                     {resume?.job?.map((item, k) => (
-                                <div className='flex' key={k}>
+                                <div className='flex-s' key={k}>
                                     <div className="flex-c">
                                         {item?.organization ? <p>*job </p>:null}
                                         <h4>{item?.organization}</h4>
@@ -203,12 +211,12 @@ const Apply = () => {
                                         <p>{item?.location}</p>
                                         <p>{new Date(item?.start_date).getFullYear()} to {new Date(item?.end_date).getFullYear()}</p>
                                     </div>
-                                    {item?.profile ? <p onClick={() => deleteJob(k)}>delete</p> : null} 
+                                    {item?.profile ? <p onClick={() => deleteJob(k)}><FaDeleteLeft className='delete-icon' /></p> : null} 
                                     </div>
                               ))}
 
                     {resume?.intern?.map((item, k) => (
-                                <div className='flex' key={k}>
+                                <div className='flex-s' key={k}>
                                     <div className="flex-c">
                                         {item?.organization ? <p> *Intern</p>:null}
                                         <h4>{item?.organization}</h4>
@@ -216,7 +224,7 @@ const Apply = () => {
                                         <p>{item?.location}</p>
                                         <p>{new Date(item?.start_date).getFullYear()} to {new Date(item?.end_date).getFullYear()}</p>
                                     </div>
-                                    {item?.profile ? <p onClick={() => deleteIntern(k)}>delete</p> : null} 
+                                    {item?.profile ? <p onClick={() => deleteIntern(k)}><FaDeleteLeft className='delete-icon' /></p> : null} 
                                     </div>
                               ))}
                          </div>
@@ -239,11 +247,11 @@ const Apply = () => {
                     <div className="flex-col">
                     <div className="por_content">
                     {resume?.POR?.map((item, k) => (
-                                <div className='flex' key={k}>
+                                <div className='flex-s' key={k}>
                                     <div className="flex-c">
                                         <p>{item?.description}</p>
                                     </div>
-                                    {item?.description ? <p onClick={() => deletePOR(k)}>delete</p> : null} 
+                                    {item?.description ? <p onClick={() => deletePOR(k)}><FaDeleteLeft className='delete-icon' /></p> : null} 
                                     </div>
                               ))}
                     </div>
@@ -260,13 +268,13 @@ const Apply = () => {
                     <div className="flex-col">
                     <div className="projects_content">
                     {resume?.project?.map((item, k) => (
-                                <div className='flex' key={k}>
+                                <div className='flex-s' key={k}>
                                     <div className="flex-c">
                                         <p>{item?.title}</p>
                                         <p>{item?.start_date} to {item.end_date}</p>
                                         <p>{item.description}</p>
                                     </div>
-                                    {item?.description ? <p onClick={() => deleteProj(k)}>delete</p> : null} 
+                                    {item?.description ? <p onClick={() => deleteProj(k)}><FaDeleteLeft className='delete-icon' /></p> : null} 
                                     </div>
                               ))}
                     </div>
@@ -283,12 +291,12 @@ const Apply = () => {
                     <div className="flex-col">
                     <div className="skills_content">
                         {resume?.skills?.map((item, k) => (
-                                <div className='flex' key={k}>
+                                <div className='flex-s' key={k}>
                                     <div className="flex-c">
                                         <p>{item}</p>
-                                       
                                     </div>
-                                    {item ? <p onClick={() => deleteSkill(k)}>delete</p> : null} 
+                                    {item ? <p onClick={() => deleteSkill(k)}><FaDeleteLeft className='delete-icon' />
+                                    </p> : null} 
                                     </div>
                               ))}
                     </div>
@@ -306,11 +314,11 @@ const Apply = () => {
                    <div className="flex-col">
                    <div className="accomplishment_content">
                         {resume?.accomplishments?.map((item, k) => (
-                                <div className='flex' key={k}>
+                                <div className='flex-s' key={k}>
                                     <div className="flex-c">
                                         <p>{item}</p>
                                     </div>
-                                    {item ? <p onClick={() => deleteAcco(k)}>delete</p> : null} 
+                                    {item ? <p onClick={() => deleteAcco(k)}><FaDeleteLeft className='delete-icon' /></p> : null} 
                                     </div>
                               ))}
                     </div>

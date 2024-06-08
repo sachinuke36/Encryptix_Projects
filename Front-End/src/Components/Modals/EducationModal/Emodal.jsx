@@ -34,7 +34,7 @@ const Emodal = ({ resume, setShowEdu, setResume }) => {
       <div onClick={() => setShowEdu(false)} className="modal-wrapper"></div>
       <div className='education-content'>
         <div className="graduation_information">
-          {showGradModal ? <GraduationModal setResume={setResume} resume={resume} graduation={graduation} setGraduation={setGraduation} /> : null}
+          {showGradModal ? <GraduationModal setShowGradModal={setShowGradModal} setResume={setResume} resume={resume} graduation={graduation} setGraduation={setGraduation} /> : null}
           <p className='blue' onClick={() => setShowGradModal(true)}>+ Add graduation/post graduation</p>
         </div>
         <div className="hsc_information">
@@ -58,6 +58,7 @@ const Emodal = ({ resume, setShowEdu, setResume }) => {
             diploma={diploma} setDiploma={setDiploma}
             PhD={PhD} setPhD={setPhD}
             title={"Diploma details"}
+            setShowDiplomaModal={setShowDiplomaModal}
           /> : null}
           <p className='blue' onClick={() => setShowDiplomaModal(true)}>+ Add diploma</p>
         </div>

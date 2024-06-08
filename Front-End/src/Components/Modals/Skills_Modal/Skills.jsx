@@ -25,7 +25,7 @@ const Skills = ({setShowSkills}) => {
         <div  className="skills-content flex-col">
             <form className='flex-col' onSubmit={handleSubmit}>
                 <label htmlFor="skills">Skills</label>
-                <input value={skills.value} onChange={handleChange} type="text" name="skills" id="skills" />
+                <input value={skills.value} required onChange={handleChange} type="text" name="skills" id="skills" />
                 <button type='submit'>save</button>
             </form>
         </div>

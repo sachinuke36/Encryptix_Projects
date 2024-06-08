@@ -3,5 +3,18 @@
 }
 
 .home-slider img {
+    /* width: 100%; */
     width: 450px;
+}
+@media (max-width:662px) {
+    .home-slider img {
+        /* width: 100%; */
+        width: 400px;
+    }
+}
+@media (max-width:402px) {
+    .home-slider img {
+        /* width: 100%; */
+        width: 250px;
+    }
 }

@@ -89,6 +89,7 @@ const ShowHSCModal = ({ title, status, resume, setResume }) => {
               value={HSC.year_of_completion || ''}
               name="year_of_completion"
               id="year_of_completion"
+              required
             />
           </div>
           <div className="board flex-col">
@@ -98,6 +99,7 @@ const ShowHSCModal = ({ title, status, resume, setResume }) => {
               name='board'
               onChange={handleChange}
               value={HSC.board || ''}
+              required
             />
           </div>
           <div className="performance flex">
@@ -131,6 +133,7 @@ const ShowHSCModal = ({ title, status, resume, setResume }) => {
               onChange={handleChange}
               value={HSC.stream || ''}
               id="stream"
+              required
             />
           </div>
           <div className="school flex-col">
@@ -141,6 +144,7 @@ const ShowHSCModal = ({ title, status, resume, setResume }) => {
               onChange={handleChange}
               value={HSC.school || ''}
               id="school"
+              required
             />
           </div>
           <button type="submit">Submit</button>

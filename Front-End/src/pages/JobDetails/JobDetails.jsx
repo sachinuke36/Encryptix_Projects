@@ -35,7 +35,11 @@ const JobDetails = () => {
     }, [])
 
     if (isLoading) {
-        return (<div>Please Wait. Loading................</div>)
+        return (<div className='loading-box'> <div className="loading">
+          
+        </div>
+        <h2 style={{textAlign:'center', margin:'2px'}} > Loading</h2>
+          </div>)
     }
 
     return (

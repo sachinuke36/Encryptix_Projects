@@ -29,11 +29,11 @@
     align-items: flex-start;
     flex-direction: column;
 }
-.flex-col input{
+.respond-content .flex-col input{
    width: 30vw;
    padding: 5px 10px;
 }
- .flex-col textarea{
+ .respond-content .flex-col textarea{
    width: 50vw;
    height: 20vh;
    padding: 10px;

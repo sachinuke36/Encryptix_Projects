@@ -1,9 +1,11 @@
 import React,{useContext, useEffect, useState} from 'react'
 import './ApplicationCard.css';
-import { Context } from '../../../../Front-End/src/Context/StoreContext';
+import { Context } from '../../Context/StoreContext';
 import ResumeModal from '../Modals/Resume/ResumeModal';
 import Respond from '../Modals/Respond/Respond';
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ApplicationCard = ({name,email,resume,jobId, id}) => {
     const { all_jobs, url, myJobs, setMyJobs } = useContext(Context);
@@ -14,13 +16,15 @@ const ApplicationCard = ({name,email,resume,jobId, id}) => {
     const token = localStorage.getItem("token")
     // const [responded, setResponded] = useState(false);
 
-console.log("myJobs",myJobs);
-console.log("jobInfo", jobInfo, jobInfo?.map(i => i.rejected && i.rejected.includes(id))[0]);
 
 const deleteApplication =async(e)=>{
   await axios.post(url+'/job/my_jobs/remove_applicant/'+id,{jobId:jobId},{headers:{token}})
-  .then((res)=>console.log(res))
-  .catch((err)=>console.log(err))
+  .then((res)=>{toast.success(res.data.message)
+    window.location.reload();
+
+  })
+  .catch((err)=>toast.error(err))
+
 }
   return (
     <div className='application-card'>
@@ -42,15 +46,16 @@ const deleteApplication =async(e)=>{
             <button onClick={deleteApplication}>Delete</button>
               
                 <p>
-    {jobInfo?.map(i => {
+    {jobInfo?.map((i,k) => {
         if (i.responded) {
-            return i.rejected && i.rejected.includes(id) ? <p style={{color:"red"}}>Rejected</p> : <p style={{color:"green"}}>Selected</p>;
+            return i.rejected && i.rejected.includes(id) ? <p key={k} style={{color:"red"}}>Rejected</p> : <p style={{color:"green"}}>Selected</p>;
         } else {
             return "";
         }
     })}
      </p>
         </div>
+        <ToastContainer/>
     </div>
   )
 }

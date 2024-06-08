@@ -20,15 +20,15 @@ const JobCard = ({ title, logo, company, location, stipend, duration, type }) =>
             </div>
             <hr />
             <div className="card-lower">
-                <div className='location flex'>
+                <div className='location flex-s'>
                     <CiLocationOn />
                     <p>{location}</p>
                 </div>
-                <div className="stipend flex">
+                <div className="stipend flex-s">
                     <PiMoneyWavy />
                     <p>Rs. {stipend.from}-{stipend.to}/month</p>
                 </div>
-                <div className="duration flex">
+                <div className="duration flex-s">
                     <GiDuration />
                     <p>{duration}</p>
                 </div>

@@ -69,3 +69,12 @@
 .b {
     border: 1px solid white;
 }
+@media (max-width:537px) {
+    .filters{
+        width: 80%;
+        background-color: white;
+        color: black;
+        height: 50vh;
+        margin: 0 auto;
+    }
+}

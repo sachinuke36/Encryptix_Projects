@@ -2,7 +2,7 @@ import React,{ useContext, useEffect, useState} from 'react'
 import './DDModal.css'
 import { Context } from '../../../Context/StoreContext';
 
-const DDModal = ({title,diploma,PhD, setDiploma, setPhD}) => {
+const DDModal = ({title,diploma,PhD,setShowDiplomaModal, setDiploma, setPhD}) => {
    const {resume, updateResume, setResume}= useContext(Context)
     const [data, setData]= useState({
         college:'',
@@ -31,12 +31,14 @@ const DDModal = ({title,diploma,PhD, setDiploma, setPhD}) => {
             setResume(updatedResume);
             console.log("updatedResume-Diploma",updatedResume);
             updateResume(updatedResume);
+            setShowDiplomaModal(false)
 
         }else if(title ==='PhD details'){
             const updatedResume = {...resume, education:[...resume.education, {PhD}]}
             setResume(updatedResume);
             console.log("updatedResume-PhD",updatedResume);
             updateResume(updatedResume);
+            setShowDiplomaModal(false)
         }
     }
 
@@ -49,23 +51,23 @@ const DDModal = ({title,diploma,PhD, setDiploma, setPhD}) => {
           <form onSubmit={handleSubmit}>
                 <div className="college flex-col">
                     <label htmlFor="college">College</label>
-                    <input type="text" value={diploma.college} onChange={handleChange}  name="college" id="college" />
+                    <input type="text" required value={diploma.college} onChange={handleChange}  name="college" id="college" />
                 </div>
 
                 <div className="duration flex">
                     <div className="start_year flex-col">
                         <label htmlFor="start_year">Start Year</label>
-                        <input type="number" value={diploma.start_year} onChange={handleChange} name="start_year" id="start_year" />
+                        <input type="number" required value={diploma.start_year} onChange={handleChange} name="start_year" id="start_year" />
                     </div>
                     <div className="end_year flex-col">
                         <label htmlFor="end_year">End year</label>
-                        <input type="number" value={diploma.end_year} onChange={handleChange} name="end_year" id="end_year" />
+                        <input type="number" required value={diploma.end_year} onChange={handleChange} name="end_year" id="end_year" />
                     </div>
                 </div>
 
              <div className="stream flex-col">
                 <label htmlFor="stream">Stream</label>
-                <input type="text" value={diploma.stream} onChange={handleChange} name="stream" id="stream" />
+                <input type="text" required value={diploma.stream} onChange={handleChange} name="stream" id="stream" />
              </div>
 
             <div className="performance_scale_box flex">
@@ -81,7 +83,7 @@ const DDModal = ({title,diploma,PhD, setDiploma, setPhD}) => {
                     <input type="number" value={diploma.performance} onChange={handleChange} name="performance" id="performance" />
                 </div>
             </div>
-            <div className="save-button"><button type="submit">save</button></div>
+            <div className="save-button"><button  type="submit">save</button></div>
           </form>
 
         </div>

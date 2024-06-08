@@ -4,7 +4,7 @@ import { Jobs } from '../../assets/db.js'
 import JobCard from '../JobCard/JobCard.jsx'
 import { FaAngleDoubleLeft } from "react-icons/fa";
 import { FaAngleDoubleRight } from "react-icons/fa";
-
+import {motion} from 'framer-motion'
 
 const Recommended = () => {
     const ref = useRef(null);
@@ -24,8 +24,18 @@ const Recommended = () => {
                 }
             </div>
             <div className="scroll-buttons">
-             <button onClick={()=>scroll(-200)}><FaAngleDoubleLeft /></button>
-             <button onClick={()=>scroll(200)}><FaAngleDoubleRight /></button>
+             <motion.button 
+             whileTap={{
+                scale:0.95,
+                rotate:'2.5deg'
+             }}
+             onClick={()=>scroll(-200)}><FaAngleDoubleLeft /></motion.button>
+             <motion.button
+             whileTap={{
+                scale:0.95,
+                rotate:'2.5deg'
+             }}
+              onClick={()=>scroll(200)}><FaAngleDoubleRight /></motion.button>
             </div>
            
 

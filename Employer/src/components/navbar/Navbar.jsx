@@ -4,8 +4,9 @@ import { Link, useNavigate,useLocation } from 'react-router-dom'
 import { IoNotifications } from "react-icons/io5";
 import { MdOutlineMessage } from "react-icons/md";
 import { FaUserAlt } from "react-icons/fa";
-import { Context } from '../../../../Front-End/src/Context/StoreContext';
+import { Context } from '../../Context/StoreContext';
 import { GiHamburgerMenu } from "react-icons/gi";
+import { IoIosLogOut } from "react-icons/io";
 
 
 const Navbar = () => {
@@ -62,14 +63,23 @@ const Navbar = () => {
         {/* <Link to="/" 
              className={location.pathname==='/'? 'active':''}>Home </Link> */}
 
-            <Link to="/my-jobs"
-            className={location.pathname==='/my-jobs'? 'active':''}>My Jobs</Link>
+            <div className='sidebar-links'>
+            <div className='flex-col'>
+            <Link to="/"
+            className={location.pathname==='/'? 'active':''}>My Jobs</Link>
 
             <Link to="/applications"
                 className={location.pathname==='/applications'? 'active':''}>Applications</Link>
 
             <Link to="/post-job"
                 className={location.pathname==='/post-job'? 'active':''}>Post a Job</Link>
+            </div>
+
+            <div onClick={logOut} className='logout-box'>
+                <p>logout</p>
+               <IoIosLogOut className='logout' style={{color:"black"}} />
+            </div>
+            </div>
         </div>
     </nav>
   )

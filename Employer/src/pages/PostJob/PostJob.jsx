@@ -1,9 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react'
 import './PostJob.css'
-import { Context } from '../../../../Front-End/src/Context/StoreContext';
+import { Context } from '../../Context/StoreContext'
 import axios from 'axios';
 import CreaTableSelect from 'react-select/creatable';
 import {useParams, useNavigate} from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PostJob = () => {
 
@@ -37,19 +39,20 @@ const PostJob = () => {
         e.preventDefault();
         const token = localStorage.getItem('token')
         if(id){
-            console.log('here')
             let response = await axios.patch( `${url}/job/update/post-job/${id}`, data,{headers:{token}});
-            console.log(response);
             if(response.data.success){
-                console.log("data changed successfully");
-                navigate('/my-jobs');
+                toast.success(response.data.message);
+                navigate('/');
                 
+            }else{
+                toast.error(response.data.message);
             }
         }else{ 
             
             let response = await axios.post( `${url}/job/post-job`, data,{headers:{token}});
        
-        if (response.data.success) {   
+        if (response.data.success) {  
+            toast.success(response.data.success); 
             setData({
                 company: '',
                 company_description: '',
@@ -69,6 +72,8 @@ const PostJob = () => {
                 duration:'',
                 type:''
             });
+        }else{
+            toast.error(response.data.message)
         }
        }
     }
@@ -96,9 +101,6 @@ const PostJob = () => {
     useEffect(()=>{
        const job =  myJobs?.filter((i)=>(i._id ===id))
        if(id && job){
-        // setData(job)
-        console.log("job",job);
-        // job.map((item)=>setData([item]:item))
      setData({
             company: job[0].company,
             company_description: job[0].company_description,
@@ -123,9 +125,7 @@ const PostJob = () => {
 
     },[myJobs])
     
-    useEffect(()=>{
-        console.log(data)
-    },[data])
+    
     
     
 
@@ -301,7 +301,7 @@ const PostJob = () => {
                     </div>
                 <div className="button"><button type="submit">Submit</button></div>
             </form>
-            
+            <ToastContainer/>
         </div>
 
     )

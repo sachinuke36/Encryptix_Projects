@@ -2,13 +2,13 @@ import './Respond.css';
 import React, { useContext, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import axios from 'axios';
-import { Context } from '../../../../../Front-End/src/Context/StoreContext';
+import { Context } from '../../../Context/StoreContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Respond = ({ email, setShowRespond, isSelected, jobId, id }) => {
     const {url} = useContext(Context);
   const form = useRef();
-  console.log(email)
-  console.log("isSelected",isSelected);
   
 
   const token = localStorage.getItem("token");
@@ -17,7 +17,7 @@ const Respond = ({ email, setShowRespond, isSelected, jobId, id }) => {
             const res = await axios.patch(url+'/job/my_jobs/respond',{selected:isSelected, jobId:jobId, applicantId:id},{headers:{token}})
             return  res.data
         } catch (error) {
-            console.log("Error")
+            toast.error(error);
         }
       }
 
@@ -35,14 +35,14 @@ const Respond = ({ email, setShowRespond, isSelected, jobId, id }) => {
             .send('service_254tyx8', 'template_olmtc5o', Params, 'hvjjzrtekN_1vQ6it')
             .then(
                 () => {
-                    console.log('SUCCESS!');
+                    toast.success('SUCCESS!');
                   },
                   (error) => {
-                    console.log('FAILED...', error.text);
+                    toast.error(error.text);
                   },
                 );
              }else{
-                console.log("coudn't send message")
+                toast.error("coudn't send message")
              }
     
   };
@@ -61,7 +61,7 @@ const Respond = ({ email, setShowRespond, isSelected, jobId, id }) => {
       <input type="submit" className='button' value="Send" />
     </form>
     </div>
-    
+    <ToastContainer/>
     </div>
   );
   
